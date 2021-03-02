@@ -1,0 +1,317 @@
+3rd program calculator
+
+activity_main.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="47dp"
+        android:text="Calculator Demo!"
+        android:textColor="#000000"
+        android:textSize="25dp" />
+    <EditText
+        android:id="@+id/screen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Your Expression here" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:onClick="update"
+                android:text="1" />
+
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:onClick="update"
+                android:text="2" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:onClick="update"
+                android:text="3" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:onClick="update"
+                android:text="4" />
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:onClick="update"
+                android:text="5" />
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:onClick="update"
+                android:text="6" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:onClick="update"
+                android:text="7" />
+
+
+            <Button
+                android:id="@+id/button8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:onClick="update"
+                android:text="8" />
+
+            <Button
+                android:id="@+id/button9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:onClick="update"
+                android:text="9" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonadd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:onClick="update"
+                android:text="+" />
+
+
+            <Button
+                android:id="@+id/button0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:onClick="update"
+                android:text="0" />
+
+            <Button
+                android:id="@+id/buttonsub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:onClick="update"
+                android:text="-" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttondiv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:onClick="update"
+                android:text="/" />
+
+
+            <Button
+                android:id="@+id/buttonmod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:onClick="update"
+                android:text="%" />
+
+            <Button
+                android:id="@+id/buttonmul"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:onClick="update"
+                android:text="*" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+
+            <Button
+                android:id="@+id/buttonequal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.20"
+                android:onClick="update"
+                android:text="=" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+
+MainActivity.java
+
+
+package com.example.lab3;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+    int op1,op2,result,operand;
+    public void update(View view)
+    {
+        {
+            switch (view.getId())
+            {
+                case R.id.button1:
+                    ((EditText)findViewById(R.id.screen)).append("1");
+                    break;
+                case R.id.button2:
+                    ((EditText)findViewById(R.id.screen)).append("2");
+                    break;
+                case R.id.button3:
+                    ((EditText)findViewById(R.id.screen)).append("3");
+                    break;
+                case R.id.button4:
+                    ((EditText)findViewById(R.id.screen)).append("4");
+                    break;
+                case R.id.button5:
+                    ((EditText)findViewById(R.id.screen)).append("5");
+                    break;
+                case R.id.button6:
+                    ((EditText)findViewById(R.id.screen)).append("6");
+                    break;
+                case R.id.button7:
+                    ((EditText)findViewById(R.id.screen)).append("7");
+                    break;
+                case R.id.button8:
+                    ((EditText)findViewById(R.id.screen)).append("8");
+                    break;
+                case R.id.button9:
+                    ((EditText)findViewById(R.id.screen)).append("9");
+                    break;
+                case R.id.button0:
+                    ((EditText)findViewById(R.id.screen)).append("0");
+                    break;
+                case R.id.buttonadd:
+                    op1=Integer.parseInt(((EditText)findViewById(R.id.screen)).getText().toString());
+                    ((EditText)findViewById(R.id.screen)).setText("");
+                    operand=1;
+                    break;
+                case R.id.buttonsub:
+                    op1=Integer.parseInt(((EditText)findViewById(R.id.screen)).getText().toString());
+                    ((EditText)findViewById(R.id.screen)).setText("");
+                    operand=2;
+                    break;
+                case R.id.buttondiv:
+                    op1=Integer.parseInt(((EditText)findViewById(R.id.screen)).getText().toString());
+                    ((EditText)findViewById(R.id.screen)).setText("");
+                    operand=3;
+                    break;
+                case R.id.buttonmul:
+                    op1=Integer.parseInt(((EditText)findViewById(R.id.screen)).getText().toString());
+                    ((EditText)findViewById(R.id.screen)).setText("");
+                    operand=4;
+                    break;
+                case R.id.buttonmod:
+                    op1=Integer.parseInt(((EditText)findViewById(R.id.screen)).getText().toString());
+                    ((EditText)findViewById(R.id.screen)).setText("");
+                    operand=5;
+                    break;
+
+                case R.id.buttonequal:
+                    op2=Integer.parseInt(((EditText)findViewById(R.id.screen)).getText().toString());
+
+                    switch(operand)
+                    {
+                        case 1:
+                            result=op1+op2;
+                            ((EditText)findViewById(R.id.screen)).setText(result+"");
+                            break;
+                        case 2:
+                            result=op1-op2;
+                            ((EditText)findViewById(R.id.screen)).setText(result+"");
+                            break;
+                        case 3:
+                            result=op1/op2;
+                            ((EditText)findViewById(R.id.screen)).setText(result+"");
+                            break;
+                        case 4:
+                            result=op1*op2;
+                            ((EditText)findViewById(R.id.screen)).setText(result+"");
+                            break;
+                        case 5:
+                            result=op1%op2;
+                            ((EditText)findViewById(R.id.screen)).setText(result+"");
+                            break;
+                        default:
+                    }
+                default:
+            }
+        }
+    }
+}
